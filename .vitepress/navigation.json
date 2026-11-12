@@ -1,0 +1,174 @@
+[
+  {
+    "text": "快速使用入门",
+    "items": [
+      {
+        "text": "平台介绍",
+        "file": "入门/平台介绍.md",
+        "route": "/getting-started/introduction",
+        "textEn": "Introduction"
+      },
+      {
+        "text": "注册与充值",
+        "file": "入门/注册与充值.md",
+        "route": "/getting-started/account",
+        "textEn": "Account and balance"
+      },
+      {
+        "text": "创建 API Key",
+        "file": "入门/创建令牌.md",
+        "route": "/getting-started/api-key",
+        "textEn": "Create an API key"
+      },
+      {
+        "text": "Base URL 与模型选择",
+        "file": "入门/接口地址与模型.md",
+        "route": "/getting-started/base-url",
+        "textEn": "Base URL and models"
+      },
+      {
+        "text": "完成第一次调用",
+        "file": "入门/首次调用.md",
+        "route": "/getting-started/first-request",
+        "textEn": "Your first request"
+      },
+      {
+        "text": "常见问题与错误排查",
+        "file": "入门/常见问题.md",
+        "route": "/getting-started/troubleshooting",
+        "textEn": "Troubleshooting"
+      }
+    ],
+    "textEn": "Getting started"
+  },
+  {
+    "text": "生成任务 API",
+    "items": [
+      {
+        "text": "接入总览",
+        "file": "生成任务/接入总览.md",
+        "route": "/generation/",
+        "textEn": "Overview"
+      },
+      {
+        "text": "视频生成与下载",
+        "file": "生成任务/视频生成与下载.md",
+        "route": "/generation/video",
+        "textEn": "Video generation"
+      },
+      {
+        "text": "音乐与歌词",
+        "file": "生成任务/音乐与歌词.md",
+        "route": "/generation/music",
+        "textEn": "Music and lyrics"
+      },
+      {
+        "text": "Midjourney 绘图",
+        "file": "生成任务/Midjourney绘图.md",
+        "route": "/generation/midjourney",
+        "textEn": "Midjourney images"
+      },
+      {
+        "text": "通用任务与产物",
+        "file": "生成任务/通用任务与产物.md",
+        "route": "/generation/tasks",
+        "textEn": "Tasks and artifacts"
+      },
+      {
+        "text": "后台 Responses",
+        "file": "生成任务/后台Responses.md",
+        "route": "/generation/responses",
+        "textEn": "Background Responses"
+      },
+      {
+        "text": "状态、轮询与费用",
+        "file": "生成任务/任务流程与状态.md",
+        "route": "/generation/lifecycle",
+        "textEn": "Status, polling, and billing"
+      }
+    ],
+    "textEn": "Generation APIs"
+  },
+  {
+    "text": "工具配置教程",
+    "items": [
+      {
+        "text": "选择你的工具",
+        "file": "工具/工具导航.md",
+        "route": "/tools/",
+        "textEn": "Choose your tool"
+      },
+      {
+        "text": "Codex",
+        "file": "工具/Codex配置教程.md",
+        "route": "/tools/codex",
+        "icon": "client-codex.svg",
+        "textEn": "Codex"
+      },
+      {
+        "text": "Claude Code",
+        "file": "工具/Claude Code配置教程.md",
+        "route": "/tools/claude-code",
+        "icon": "client-claude-code.png",
+        "textEn": "Claude Code"
+      },
+      {
+        "text": "DeepSeek Harness",
+        "file": "工具/DeepSeek Harness配置教程.md",
+        "route": "/tools/deepseek-harness",
+        "icon": "client-deepseek-harness.svg",
+        "textEn": "DeepSeek Harness"
+      },
+      {
+        "text": "CC Switch",
+        "file": "工具/CC Switch配置教程.md",
+        "route": "/tools/cc-switch",
+        "icon": "client-cc-switch.png",
+        "textEn": "CC Switch"
+      },
+      {
+        "text": "Cherry Studio",
+        "file": "工具/Cherry Studio配置教程.md",
+        "route": "/tools/cherry-studio",
+        "icon": "client-cherry-studio.png",
+        "textEn": "Cherry Studio"
+      },
+      {
+        "text": "Cline / Roo",
+        "file": "工具/Cline与Roo配置教程.md",
+        "route": "/tools/cline-roo",
+        "icon": "client-cline.png",
+        "textEn": "Cline / Roo"
+      },
+      {
+        "text": "n8n",
+        "file": "工具/n8n配置教程.md",
+        "route": "/tools/n8n",
+        "icon": "client-n8n.png",
+        "textEn": "n8n"
+      },
+      {
+        "text": "Dify",
+        "file": "工具/Dify配置教程.md",
+        "route": "/tools/dify",
+        "icon": "client-dify.png",
+        "textEn": "Dify"
+      },
+      {
+        "text": "Cursor",
+        "file": "工具/Cursor配置教程.md",
+        "route": "/tools/cursor",
+        "icon": "client-cursor.png",
+        "textEn": "Cursor"
+      },
+      {
+        "text": "自定义应用",
+        "file": "工具/自定义应用接入.md",
+        "route": "/tools/custom-app",
+        "icon": "client-custom-app.png",
+        "textEn": "Custom applications"
+      }
+    ],
+    "textEn": "Tool guides"
+  }
+]

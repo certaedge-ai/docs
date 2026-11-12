@@ -1,0 +1,19 @@
+{
+  "name": "certaedge-docs",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "vitepress dev --host 127.0.0.1 --port 5174",
+    "build": "vitepress build && node scripts/check-build.mjs",
+    "preview": "vitepress preview --host 127.0.0.1 --port 4174",
+    "check": "node scripts/check-content.mjs"
+  },
+  "devDependencies": {
+    "vitepress": "1.6.4",
+    "vue": "^3.5.13"
+  }
+}

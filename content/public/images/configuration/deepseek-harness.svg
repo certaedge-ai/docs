@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 570" role="img" aria-labelledby="title description">
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#b997ff"/></marker></defs>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;fill:#f1f0ec}.label{font-size:18px;fill:#c5becf}.value{font-size:21px}.step{font-size:18px;font-weight:600}</style>
+<rect width="960" height="570" rx="16" fill="#1c1624"/>
+<text x="40" y="43" fill="#b997ff" style="fill:#b997ff;font-size:13px;letter-spacing:2px">CERTAEDGE / CONNECTION GUIDE</text>
+<title id="title">DeepSeek Harness 配置示意</title><desc id="description">CertaEdge 接入配置字段示意，不是软件实测截图。</desc>
+<text x="40" y="90" font-size="30" font-weight="600">DeepSeek Harness 配置示意</text>
+<text x="40" y="121" font-size="15" style="fill:#a5a2a5">字段示意 · 非软件界面截图 · 设置名称与功能以安装版本为准</text>
+<rect x="40" y="145" width="880" height="55" rx="7" fill="#2d2734"/>
+<text class="label" x="60" y="180">入口</text>
+<text class="value" x="315" y="180">Settings → Models → Custom model API</text>
+<rect x="40" y="210" width="880" height="55" rx="7" fill="#2d2734"/>
+<text class="label" x="60" y="245">Provider ID</text>
+<text class="value" x="315" y="245">certaedge</text>
+<rect x="40" y="275" width="880" height="55" rx="7" fill="#2d2734"/>
+<text class="label" x="60" y="310">Base URL / 协议</text>
+<text class="value" x="315" y="310">https://certaedge.com/v1 / Chat</text>
+<rect x="40" y="340" width="880" height="55" rx="7" fill="#2d2734"/>
+<text class="label" x="60" y="375">保存后</text>
+<text class="value" x="315" y="375">选择工作区，再选择 CertaEdge 模型</text>
+<rect x="40" y="436" width="260" height="62" rx="8" fill="#241d2d" stroke="#b997ff" stroke-opacity=".55"/>
+<text class="step" x="170" y="474" text-anchor="middle">01  创建专用密钥</text>
+<path d="M310 467H340" stroke="#b997ff" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="350" y="436" width="260" height="62" rx="8" fill="#241d2d" stroke="#b997ff" stroke-opacity=".55"/>
+<text class="step" x="480" y="474" text-anchor="middle">02  填写地址与模型</text>
+<path d="M620 467H650" stroke="#b997ff" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="660" y="436" width="260" height="62" rx="8" fill="#241d2d" stroke="#b997ff" stroke-opacity=".55"/>
+<text class="step" x="790" y="474" text-anchor="middle">03  测试并核对记录</text>
+<text x="40" y="539" font-size="15" style="fill:#a5a2a5">图中不包含真实密钥。模型与权限以 CertaEdge 控制台为准。</text></svg>

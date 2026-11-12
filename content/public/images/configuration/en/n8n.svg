@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 570" role="img" aria-labelledby="title description">
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#b997ff"/></marker></defs>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;fill:#f1f0ec}.label{font-size:18px;fill:#c5becf}.value{font-size:21px}.step{font-size:18px;font-weight:600}</style>
+<rect width="960" height="570" rx="16" fill="#1c1624"/>
+<text x="40" y="43" fill="#b997ff" style="fill:#b997ff;font-size:13px;letter-spacing:2px">CERTAEDGE / CONNECTION GUIDE</text>
+<title id="title">n8n HTTP Request fields</title><desc id="description">CertaEdge connection fields. This is a diagram, not a tested software screenshot.</desc>
+<text x="40" y="90" font-size="30" font-weight="600">n8n HTTP Request fields</text>
+<text x="40" y="121" font-size="15" style="fill:#a5a2a5">Field diagram · Not a software screenshot · Settings depend on your version</text>
+<rect x="40" y="145" width="880" height="55" rx="7" fill="#2d2734"/>
+<text class="label" x="60" y="180">Method / Endpoint</text>
+<text class="value" x="315" y="180">POST /v1/chat/completions</text>
+<rect x="40" y="210" width="880" height="55" rx="7" fill="#2d2734"/>
+<text class="label" x="60" y="245">Header Auth name</text>
+<text class="value" x="315" y="245">Authorization</text>
+<rect x="40" y="275" width="880" height="55" rx="7" fill="#2d2734"/>
+<text class="label" x="60" y="310">Header Auth value</text>
+<text class="value" x="315" y="310">Bearer sk-YOUR_API_KEY</text>
+<rect x="40" y="340" width="880" height="55" rx="7" fill="#2d2734"/>
+<text class="label" x="60" y="375">Request body</text>
+<text class="value" x="315" y="375">JSON / YOUR_MODEL_ID / stream=false</text>
+<rect x="40" y="436" width="260" height="62" rx="8" fill="#241d2d" stroke="#b997ff" stroke-opacity=".55"/>
+<text class="step" x="170" y="474" text-anchor="middle">01  Create a dedicated key</text>
+<path d="M310 467H340" stroke="#b997ff" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="350" y="436" width="260" height="62" rx="8" fill="#241d2d" stroke="#b997ff" stroke-opacity=".55"/>
+<text class="step" x="480" y="474" text-anchor="middle">02  Set URL and model</text>
+<path d="M620 467H650" stroke="#b997ff" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="660" y="436" width="260" height="62" rx="8" fill="#241d2d" stroke="#b997ff" stroke-opacity=".55"/>
+<text class="step" x="790" y="474" text-anchor="middle">03  Test and check logs</text>
+<text x="40" y="539" font-size="15" style="fill:#a5a2a5">No real keys are shown. Check your CertaEdge console for models and permissions.</text></svg>

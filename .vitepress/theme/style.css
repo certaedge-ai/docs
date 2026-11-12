@@ -1,0 +1,85 @@
+:root {
+  --vp-font-family-base: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --vp-c-brand-1: #6b13f5;
+  --vp-c-brand-2: #5810cc;
+  --vp-c-brand-3: #6b13f5;
+  --vp-c-brand-soft: #6b13f50d;
+  --vp-c-bg: #f1f0ec;
+  --vp-c-bg-alt: #eae8e3;
+  --vp-c-bg-elv: #fffdf8;
+  --vp-c-bg-soft: #fffdf8;
+  --vp-c-text-1: #1c1624;
+  --vp-c-text-2: #55505b;
+  --vp-c-text-3: #6b6570;
+  --vp-c-divider: #1c16241c;
+  --vp-c-border: #1c16242b;
+  --vp-sidebar-width: 272px;
+  --vp-code-block-bg: #fffdf8;
+  --vp-button-brand-bg: #00f575;
+  --vp-button-brand-text: #1c1624;
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-hover-bg: #14ff89;
+  --vp-button-brand-hover-text: #1c1624;
+  --vp-nav-logo-height: 28px;
+}
+
+.dark {
+  --vp-c-brand-1: #b997ff;
+  --vp-c-brand-2: #cbb2ff;
+  --vp-c-brand-3: #9564e8;
+  --vp-c-brand-soft: #b997ff17;
+  --vp-c-bg: #1c1624;
+  --vp-c-bg-alt: #18121f;
+  --vp-c-bg-elv: #2d2734;
+  --vp-c-bg-soft: #241d2d;
+  --vp-c-text-1: #f1f0ec;
+  --vp-c-text-2: #d0c9c4;
+  --vp-c-text-3: #a5a2a5;
+  --vp-c-divider: #f1f0ec1c;
+  --vp-c-border: #f1f0ec2b;
+  --vp-code-block-bg: #241d2d;
+}
+
+.VPNavBarTitle .title { font-weight: 650; letter-spacing: -0.03em; }
+.VPNavBarTitle .logo { border-radius: 7px; color-scheme: light; }
+.dark .VPNavBarTitle .logo { color-scheme: dark; }
+.VPSidebarItem.level-0 > .item > .text { font-size: 12px; letter-spacing: 0.04em; }
+.VPSidebarItem.level-1 .item { padding-block: 4px; }
+.VPSidebarItem.level-1.is-active > .item { background: var(--vp-c-brand-soft); border-radius: 7px; }
+.VPSidebarItem.level-1 > .item > .link { padding-inline: 10px; }
+.VPDoc .content-container { max-width: 760px !important; }
+.vp-doc { font-size: 16px; line-height: 1.85; }
+.vp-doc h1 { letter-spacing: -0.045em; line-height: 1.25; }
+.vp-doc h2 { margin-top: 44px; padding-top: 28px; letter-spacing: -0.025em; }
+.vp-doc img { max-width: 100%; height: auto; border: 1px solid var(--vp-c-divider); border-radius: 10px; }
+.vp-doc div[class*='language-'] { border: 1px solid var(--vp-c-divider); border-radius: 10px; }
+.vp-doc a { text-underline-offset: 4px; }
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--vp-c-brand-1); outline-offset: 3px; }
+
+.ce-kicker { color: var(--vp-c-brand-1); font-size: 12px; font-weight: 600; letter-spacing: 0.12em; }
+.ce-intro { max-width: 38rem; color: var(--vp-c-text-2); font-size: 18px; }
+.ce-path-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 28px 0 40px; }
+.ce-path { display: flex; flex-direction: column; align-items: start; padding: 24px; border: 1px solid var(--vp-c-divider); border-radius: 12px; background: var(--vp-c-bg-soft); color: var(--vp-c-text-1) !important; text-decoration: none !important; transition: border-color 180ms ease; }
+.ce-path:hover { border-color: var(--vp-c-brand-1); }
+.ce-path-index { color: var(--vp-c-brand-1); font-family: var(--vp-font-family-mono); font-size: 12px; }
+.ce-path strong { margin-top: 12px; font-size: 20px; font-weight: 600; }
+.ce-path p { margin: 8px 0 20px; color: var(--vp-c-text-2); font-size: 14px; line-height: 1.8; font-weight: 400; }
+.ce-path-action { margin-top: auto; color: var(--vp-c-brand-1); font-size: 14px; }
+.ce-path:first-child .ce-path-action { padding: 5px 12px; border-radius: 6px; background: #00f575; color: #1c1624; }
+
+.ce-tool-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 24px 0; }
+.ce-tool-link { display: flex; align-items: center; gap: 12px; min-height: 70px; padding: 16px; border: 1px solid var(--vp-c-divider); border-radius: 10px; color: var(--vp-c-text-1) !important; font-size: 14px; text-decoration: none !important; transition: border-color 180ms ease, background-color 180ms ease; }
+.ce-tool-link:hover { border-color: var(--vp-c-brand-1); background: var(--vp-c-brand-soft); }
+.ce-tool-link img { flex-shrink: 0; width: 32px; height: 32px; padding: 2px; border: 0; border-radius: 6px; background: #fffdf8; object-fit: contain; }
+.ce-tool-arrow { margin-left: auto; color: var(--vp-c-text-3); }
+
+
+@media (max-width: 640px) {
+  .ce-path-grid, .ce-tool-grid { grid-template-columns: 1fr; }
+  .ce-path { padding: 20px; }
+  .ce-intro { font-size: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+}
