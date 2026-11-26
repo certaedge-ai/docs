@@ -1,3 +1,5 @@
+import { writeFile } from 'node:fs/promises'
+import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { defineConfig, loadEnv } from 'vitepress'
 import navigation from './navigation.json'
@@ -11,6 +13,8 @@ const env = loadEnv(
   ['MAIN_SITE_URL', 'DOCS_BASE'],
 )
 const { base, links: platformLinks } = resolveSiteLinks(env)
+const publicSite = process.env.DOCS_PUBLIC_ORIGIN === 'https://docs.certaedge.com' && base === '/'
+const publicOrigin = 'https://docs.certaedge.com'
 
 function localeTheme(english: boolean) {
   const prefix = english ? '/en' : ''
@@ -60,8 +64,23 @@ export default defineConfig({
   },
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: `${base}certaedge-mark.svg` }],
-    ['meta', { name: 'robots', content: 'noindex, nofollow' }],
+    ...(publicSite ? [] : [['meta', { name: 'robots', content: 'noindex, nofollow' }] as ['meta', Record<string, string>]]),
   ],
+  sitemap: publicSite ? { hostname: publicOrigin } : undefined,
+  transformPageData(page) {
+    if (!publicSite || page.relativePath === '404.md') return
+    const pathname = page.relativePath.replace(/(^|\/)index\.md$/, '$1').replace(/\.md$/, '.html')
+    const head = page.frontmatter.head ??= []
+    head.push(['link', { rel: 'canonical', href: new URL(pathname, publicOrigin + '/').href }])
+  },
+  transformHead({ page }) {
+    if (publicSite && page === '404.md') return [['meta', { name: 'robots', content: 'noindex' }]]
+  },
+  async buildEnd({ outDir }) {
+    if (publicSite) {
+      await writeFile(join(outDir, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${publicOrigin}/sitemap.xml\n`)
+    }
+  },
   rewrites: {
     '首页.md': 'index.md',
     'en/首页.md': 'en/index.md',

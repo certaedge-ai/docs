@@ -12,10 +12,20 @@ const originals = ['index.html', ...sections.flatMap((section) => section.items)
   `${page.route.slice(1)}${page.route.endsWith('/') ? 'index' : ''}.html`)]
 const files = ['', 'en/'].flatMap((prefix) => originals.map((file) => `${prefix}${file}`))
 const output = resolve(root, '.vitepress/dist')
-const privateData = /\/(?:Users|home)\/[^\s"'<>]+|[A-Za-z]:\\Users\\|-----BEGIN (?:RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----|\b(?:gh[pousr]_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{40,})/u
+const privateData = /\/(?:Users|home)\/[^\s"'<>]+|[A-Za-z]:\\Users\\|-----BEGIN (?:RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----|\b(?:gh[pousr]_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{40,}|sk-(?:proj-|ant-)?[A-Za-z0-9_-]{24,}|AIza[A-Za-z0-9_-]{35}|AKIA[A-Z0-9]{16})/u
+
+const publicSite = process.env.DOCS_PUBLIC_ORIGIN === 'https://docs.certaedge.com' && base === '/'
+const origin = 'https://docs.certaedge.com/'
+if (publicSite) {
+  const sitemap = readFileSync(resolve(output, 'sitemap.xml'), 'utf8')
+  const actual = new Set([...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(([, url]) => url))
+  assert.deepEqual(actual, new Set(files.map((f) => origin + f.replace(/(^|\/)index\.html$/, '$1'))))
+  assert.ok(readFileSync(resolve(output, 'robots.txt'), 'utf8').includes(origin + 'sitemap.xml'))
+}
 
 for (const entry of readdirSync(output, { recursive: true })) {
-  if (!/\.(?:html|js|json|svg|txt)$/.test(entry)) continue
+  assert.doesNotMatch(entry, /(?:^|[\/\\])(?:\.env(?:\..*)?|[^\/\\]+\.(?:pem|key|sqlite|map))$/i, `公开产物含有私有文件：${entry}`)
+  if (!/\.(?:html|js|json|svg|txt|xml|css)$/.test(entry)) continue
   const file = resolve(output, entry)
   assert.ok(!privateData.test(readFileSync(file, 'utf8')), `公开产物包含私人路径或凭据：${file}`)
 }
@@ -24,6 +34,10 @@ for (const file of files) {
   const html = readFileSync(resolve(output, file), 'utf8')
   assert.match(html, /<h1[\s>]/, `静态正文未成功渲染：${file}`)
   assert.doesNotMatch(html, /aria-label="[^"]*\{#/, `标题读屏标签不应包含锚点语法：${file}`)
+  if (publicSite) {
+    assert.doesNotMatch(html, /<meta[^>]*content="[^"]*noindex/i, file)
+    assert.ok(html.includes(`rel="canonical" href="${origin}${file.replace(/(^|\/)index\.html$/, '$1')}"`), file)
+  }
   const english = file.startsWith('en/')
   assert.ok(html.includes(`lang="${english ? 'en-US' : 'zh-CN'}"`), `页面语言标记不正确：${file}`)
   const counterpart = english ? file.slice(3) : `en/${file}`
