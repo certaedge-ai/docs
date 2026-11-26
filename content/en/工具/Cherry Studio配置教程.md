@@ -2,7 +2,7 @@
 title: "Cherry Studio Setup"
 description: "Connect CertaEdge through Cherry Studio 2.1.10 custom provider settings, select a model, and verify and enable it."
 reviewStatus: adapted
-updatedAt: "2026-11-05"
+updatedAt: "2026-11-27"
 ---
 
 # Cherry Studio Setup {#cherry-studio-配置教程}
@@ -17,6 +17,8 @@ Have both of the following ready:
 
 - Your complete CertaEdge <PlatformLink to="keys">API Key</PlatformLink>, sufficient account balance, and available key quota.
 - An exact <PlatformLink to="models">model ID</PlatformLink> with **an available channel and Chat Completions support**. A catalog entry without an available channel cannot be used; a display name does not replace the API model ID.
+
+To try editing a product update, open the [gpt-5.6-terra reference](https://certaedge.com/api/model-catalog/model/gpt-5.6-terra). For a code review, use the [gpt-6.1-sol reference](https://certaedge.com/api/model-catalog/model/gpt-6.1-sol). Each page lists current endpoints and an example cost. Confirm that `POST /v1/chat/completions` is supported and paste the exact ID into **Model ID** in Cherry Studio. If the model has been withdrawn, choose another available model with the same protocol from the catalog.
 
 ## 2. Add a provider {#_2-添加服务商}
 

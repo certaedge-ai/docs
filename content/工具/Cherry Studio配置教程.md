@@ -2,7 +2,7 @@
 title: "Cherry Studio 配置教程"
 description: "按 Cherry Studio 2.1.10 的自定义提供商设置接入 CertaEdge，选择模型并检测启用。"
 reviewStatus: adapted
-updatedAt: "2026-11-05"
+updatedAt: "2026-11-27"
 ---
 
 # Cherry Studio 配置教程
@@ -17,6 +17,8 @@ updatedAt: "2026-11-05"
 
 - CertaEdge <PlatformLink to="keys">完整 API Key</PlatformLink>，以及可用的账号余额和密钥额度。
 - <PlatformLink to="models">模型目录</PlatformLink>中**有可用渠道且支持 Chat Completions** 的完整模型 ID。不要选择仅供展示、无可用渠道的模型，也不要用显示名称代替 ID。
+
+可以用 [gpt-5.6-terra](https://certaedge.com/api/model-catalog/model/gpt-5.6-terra) 测试文案改写，或用 [gpt-6.1-sol](https://certaedge.com/api/model-catalog/model/gpt-6.1-sol) 测试代码变更评审。两份资料页都列出当前接口与示例费用。先确认仍支持 `POST /v1/chat/completions`，再把模型 ID 原样粘贴到 Cherry Studio 的「模型 ID」字段。如果模型已下架，改选目录中支持同一协议的可用模型。
 
 ## 2. 添加服务商
 
