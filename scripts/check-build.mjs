@@ -21,6 +21,10 @@ if (publicSite) {
   const actual = new Set([...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(([, url]) => url))
   assert.deepEqual(actual, new Set(files.map((f) => origin + f.replace(/(^|\/)index\.html$/, '$1'))))
   assert.ok(readFileSync(resolve(output, 'robots.txt'), 'utf8').includes(origin + 'sitemap.xml'))
+  const llms = readFileSync(resolve(output, 'llms.txt'), 'utf8')
+  assert.match(llms, /^# CertaEdge Documentation\n\n> /)
+  const entries = [...llms.matchAll(/^- \[.+?\]\((https:\/\/[^)\s]+)\)/gm)].map((match) => match[1])
+  assert.deepEqual(entries.sort(), [...actual].sort(), '文档索引应与公开站点地图一一对应')
 }
 
 for (const entry of readdirSync(output, { recursive: true })) {

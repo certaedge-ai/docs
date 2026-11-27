@@ -15,6 +15,7 @@ const env = loadEnv(
 const { base, links: platformLinks } = resolveSiteLinks(env)
 const publicSite = process.env.DOCS_PUBLIC_ORIGIN === 'https://docs.certaedge.com' && base === '/'
 const publicOrigin = 'https://docs.certaedge.com'
+const llmsEntries = new Map<string, string>()
 
 function localeTheme(english: boolean) {
   const prefix = english ? '/en' : ''
@@ -70,8 +71,12 @@ export default defineConfig({
   transformPageData(page) {
     if (!publicSite || page.relativePath === '404.md') return
     const pathname = page.relativePath.replace(/(^|\/)index\.md$/, '$1').replace(/\.md$/, '.html')
+    const canonical = new URL(pathname, publicOrigin + '/').href
     const head = page.frontmatter.head ??= []
-    head.push(['link', { rel: 'canonical', href: new URL(pathname, publicOrigin + '/').href }])
+    head.push(['link', { rel: 'canonical', href: canonical }])
+    const title = page.title.replace(/\s+/g, ' ').replace(/[\\[\]]/g, '\\$&')
+    const description = page.description.replace(/\s+/g, ' ').trim()
+    llmsEntries.set(page.filePath, `- [${title}](${canonical})${description ? ': ' + description : ''}`)
   },
   transformHead({ page }) {
     if (publicSite && page === '404.md') return [['meta', { name: 'robots', content: 'noindex' }]]
@@ -79,6 +84,32 @@ export default defineConfig({
   async buildEnd({ outDir }) {
     if (publicSite) {
       await writeFile(join(outDir, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${publicOrigin}/sitemap.xml\n`)
+      const lines = [
+        '# CertaEdge Documentation',
+        '',
+        '> English and Chinese guides to choosing a model, checking rates, making a first API request and configuring developer tools.',
+        '',
+        `查看[模型与计费](${platformLinks.models})。The pricing page lists current billing units and public rates by model.`,
+      ]
+      for (const english of [true, false]) {
+        const prefix = english ? 'en/' : ''
+        const sections = [
+          { title: english ? 'Documentation home' : '文档首页', files: ['首页.md'] },
+          ...navigation.map((section) => ({
+            title: english ? section.textEn : section.text,
+            files: section.items.map((page) => page.file),
+          })),
+        ]
+        for (const section of sections) {
+          lines.push('', '## ' + section.title, '')
+          for (const file of section.files) {
+            const entry = llmsEntries.get(prefix + file)
+            if (!entry) throw new Error('Missing published documentation page: ' + prefix + file)
+            lines.push(entry)
+          }
+        }
+      }
+      await writeFile(join(outDir, 'llms.txt'), lines.join('\n') + '\n')
     }
   },
   rewrites: {
